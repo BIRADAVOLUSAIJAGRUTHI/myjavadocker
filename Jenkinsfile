@@ -22,7 +22,7 @@ pipeline {
             steps {
                 script {                    bat 'docker run -d --name my-java-container myapp'
                     // Fetch the output of the java script
-		    sh 'docker logs my-java-container'
+		    bat 'docker logs my-java-container'
                 }
             }
         }
