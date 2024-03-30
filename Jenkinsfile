@@ -1,13 +1,13 @@
 pipeline {
     agent any
     environment {
-        PATH = "${env.PATH};C:/Program Files/Docker/Docker/resources/bin"
+        PATH = "C:/Windows/System32'
     }
     stages {
         stage('Test Stage') {
             steps {
                 script {
-                    bat 'docker info'
+                    bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" info'
                 }
             }
         }
@@ -15,16 +15,16 @@ pipeline {
         stage('Build Stage') {
             steps {
                 script {
-                    sh 'docker build -t myapp .'
+                    bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" build -t myapp .'
                 }
             }
         }
-
+	    
         stage('Deploy Stage') {
             steps {
-                script {                    bat 'docker run -d --name my-java-container myapp'
-                    // Fetch the output of the java script
-		    bat 'docker logs my-java-container'
+                script {
+                    bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" run -d --name my-java-container myapp'
+                    bat '"C:\\Program Files\\Docker\\Docker\\resources\\bin\\docker.exe" logs my-java-container'
                 }
             }
         }
