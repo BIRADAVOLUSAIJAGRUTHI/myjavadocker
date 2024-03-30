@@ -1,6 +1,8 @@
 pipeline {
     agent any
-
+    environment {
+        PATH = "C:/Windows/System32"
+    }
     stages {
         stage('Test Stage') {
             steps {
@@ -13,7 +15,7 @@ pipeline {
         stage('Build Stage') {
             steps {
                 script {
-                    bat 'docker build -t myapp .'
+                    sh 'docker build -t myapp .'
                 }
             }
         }
@@ -28,3 +30,4 @@ pipeline {
         }
     }
 }
+
