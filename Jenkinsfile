@@ -1,7 +1,8 @@
 pipeline {
     agent any
     environment {
-        PATH = "C:/Windows/System32"
+        PATH1 = "C:/Windows/System32"
+	PATH2 = "C:/Program Files/Git/bin/git.exe"
     }
     stages {
         stage('Test Stage') {
